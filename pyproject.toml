@@ -31,7 +31,7 @@ dependencies = [
     "typing-extensions>=4.7",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 test = [
     "pre-commit>=3.5.0",
     "pytest>=8.3.3",
@@ -54,18 +54,21 @@ doc = [
     "mkdocs-material>=9.0",
     "jinja2>=3.0.3"
 ]
-queue = ["beanie-batteries-queue>=0.2"]
 ci = [
     "toml",
     "requests",
     "types-requests",
 ]
+
+
+[project.optional-dependencies]
 aws = ["motor[aws]>=2.5.0,<4.0.0"]
 encryption = ["motor[encryption]>=2.5.0,<4.0.0"]
 gssapi = ["motor[gssapi]>=2.5.0,<4.0.0"]
 ocsp = ["motor[ocsp]>=2.5.0,<4.0.0"]
 snappy = ["motor[snappy]>=2.5.0,<4.0.0"]
 zstd = ["motor[zstd]>=2.5.0,<4.0.0"]
+queue = ["beanie-batteries-queue>=0.2"]
 
 [project.urls]
 homepage = "https://beanie-odm.dev"
