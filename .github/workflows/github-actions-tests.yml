@@ -33,7 +33,7 @@ jobs:
           mongodb-replica-set: test-rs
       - name: install dependencies pydantic2
         if: startsWith(matrix.pydantic-version, '2')
-        run: uv sync --group test  --group ci --frozen && uv add "pydantic==1.10.18"
+        run: uv sync --group test  --group ci --frozen && uv add "pydantic==1.10.18" pydantic-setting pydantic-extra-types
       - name: install pydantic2 extras
         if: startsWith(matrix.pydantic-version, '1')
         run: uv sync --group test  --group ci --frozen && uv add "pydantic==2.11.3" pydantic-setting pydantic-extra-types
