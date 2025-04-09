@@ -42,7 +42,6 @@ test = [
     "asgi-lifespan>=1.0.1",
     "httpx>=0.23.0",
     "fastapi>=0.100",
-    "pydantic[email]>=1.10.18",
 ]
 doc = [
     "Pygments>=2.8.0",
@@ -67,8 +66,7 @@ ocsp = ["motor[ocsp]>=2.5.0,<4.0.0"]
 snappy = ["motor[snappy]>=2.5.0,<4.0.0"]
 zstd = ["motor[zstd]>=2.5.0,<4.0.0"]
 queue = ["beanie-batteries-queue>=0.2"]
-pydantic2-tests=["pydantic_settings","pydantic-extra-types","pydantic>=2"]
-pydantic1-tests=["pydantic[email]==1.10.18"]
+
 
 [project.urls]
 homepage = "https://beanie-odm.dev"
