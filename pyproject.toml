@@ -34,7 +34,6 @@ dependencies = [
 [dependency-groups]
 test = [
     "pre-commit>=3.5.0",
-    "pydantic_settings",
     "pydantic-extra-types",
     "pytest>=8.3.3",
     "pytest-asyncio>=0.24.0",
@@ -44,7 +43,7 @@ test = [
     "asgi-lifespan>=1.0.1",
     "httpx>=0.23.0",
     "fastapi>=0.100",
-    "pydantic[email]",
+    "pydantic[email]>=1.10.18",
 ]
 doc = [
     "Pygments>=2.8.0",
@@ -58,6 +57,12 @@ ci = [
     "toml",
     "requests",
     "types-requests",
+]
+dev= [
+    { include-group = 'test' },
+    { include-group = 'doc' },
+    { include-group = 'ci' },
+    "pydantic_settings",
 ]
 
 

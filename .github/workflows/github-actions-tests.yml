@@ -35,6 +35,9 @@ jobs:
         run: uv sync --group test  --group ci --frozen
       - name: install pydantic
         run: uv add pydantic==${{ matrix.pydantic-version }}
+      - name: install pydantic2 extras
+        if: startsWith(matrix.pydantic-version, '2')
+        run: uv add pydantic-settings
       - name: run tests
         env:
           PYTHON_JIT: 1
