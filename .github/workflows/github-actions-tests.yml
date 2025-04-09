@@ -15,27 +15,27 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.13t" ]
         mongodb-version: [ "4.4", "5.0", "6.0", "7.0", "8.0" ]
         pydantic-version: [ "1.10.18", "2.9.2" , "2.10.4"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Install uv and set the python version
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-          cache-dependency-path: pyproject.toml
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.11.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
           mongodb-replica-set: test-rs
       - name: install dependencies
-        run: pip install .[test,ci]
+        run: uv sync --group test  --group ci --frozen
       - name: install pydantic
-        run: pip install pydantic==${{ matrix.pydantic-version }}
+        run: uv add pydantic==${{ matrix.pydantic-version }}
       - name: run tests
         env:
           PYTHON_JIT: 1
-        run: pytest -v
+        run: uv run pytest -v
