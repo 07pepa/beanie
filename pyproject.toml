@@ -57,13 +57,6 @@ ci = [
     "requests",
     "types-requests",
 ]
-dev= [
-    { include-group = 'test' },
-    { include-group = 'doc' },
-    { include-group = 'ci' },
-    "pydantic_settings",
-    "pydantic-extra-types",
-]
 
 
 [project.optional-dependencies]
@@ -74,6 +67,8 @@ ocsp = ["motor[ocsp]>=2.5.0,<4.0.0"]
 snappy = ["motor[snappy]>=2.5.0,<4.0.0"]
 zstd = ["motor[zstd]>=2.5.0,<4.0.0"]
 queue = ["beanie-batteries-queue>=0.2"]
+pydantic2-tests=["pydantic_settings","pydantic-extra-types","pydantic>=2"]
+pydantic1-tests=["pydantic[email]==1.10.18"]
 
 [project.urls]
 homepage = "https://beanie-odm.dev"
