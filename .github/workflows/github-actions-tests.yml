@@ -40,4 +40,4 @@ jobs:
       - name: run tests
         env:
           PYTHON_JIT: 1
-        run: uv run pytest -v
+        run: uv run pytest -vvv
