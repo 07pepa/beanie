@@ -38,9 +38,9 @@ def test_schema_export_of_model_with_pydanticobjectid():
         == "#/$defs/PydanticObjectId"
     )
     assert (
-        json_schema["properties"]["pyid"]["$ref"]
-        == "#/$defs/PydanticObjectId"
+        json_schema["properties"]["pyid"]["$ref"] == "#/$defs/PydanticObjectId"
     )
+
 
 def test_schema_export_of_model_with_link():
     json_schema = DocumentWithLink.model_json_schema()
