@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import asyncio
 from collections import OrderedDict
-from collections import OrderedDict as OrderedDictType
 from dataclasses import dataclass
 from enum import Enum
 from typing import (
@@ -78,6 +77,15 @@ def Indexed(typ=None, index_type=ASCENDING, **kwargs: Any):
     """
     if typ is None:
         return IndexedAnnotation(_indexed=(index_type, kwargs))
+
+    else:
+        import warnings
+
+        warnings.warn(
+            "argument typ is deprecated please use Annotated instead",
+            DeprecationWarning,
+            stacklevel=2,
+        )
 
     class NewType(typ):
         _indexed = (index_type, kwargs)
@@ -334,7 +342,7 @@ class Link(Generic[T]):
     @staticmethod
     def repack_links(
         links: List[Union[Link[T], DocType]],
-    ) -> OrderedDictType[Any, Any]:
+    ) -> OrderedDict[Any, Any]:
         result = OrderedDict()
         for link in links:
             if isinstance(link, Link):

@@ -2,8 +2,6 @@ import asyncio
 import sys
 from collections.abc import Sequence
 
-from typing_extensions import get_args, get_origin
-
 from beanie.odm.utils.pydantic import (
     get_extra_field_info,
     get_model_fields,
@@ -24,6 +22,8 @@ from typing import (  # type: ignore
     Type,
     Union,
     _GenericAlias,
+    get_args,
+    get_origin,
 )
 
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase

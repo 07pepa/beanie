@@ -32,4 +32,6 @@ class House(Document):
 
 class Person(Document):
     name: str
-    house: BackLink[House] = Field(original_field="owner")
+    house: BackLink[House] = Field(
+        json_schema_extra={"original_field": "owner"}
+    )

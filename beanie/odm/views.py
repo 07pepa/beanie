@@ -1,5 +1,5 @@
 import asyncio
-from typing import Any, ClassVar, Dict, Optional, Union
+from typing import Any, ClassVar, Optional, Union
 
 from pydantic import BaseModel
 
@@ -28,7 +28,7 @@ class View(
     """
 
     # Relations
-    _link_fields: ClassVar[Optional[Dict[str, LinkInfo]]] = None
+    _link_fields: ClassVar[Optional[dict[str, LinkInfo]]] = None
 
     # Settings
     _settings: ClassVar[ViewSettings]
